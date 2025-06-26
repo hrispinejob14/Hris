@@ -3,326 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Computer Scientist & Software Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Your Name | Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #F9FAFB;
-            --card-color: #FFFFFF;
+            --bg-color: #FFFFFF;
             --primary-text: #111827;
             --secondary-text: #6B7280;
-            --accent-color: #4338CA;
+            --accent-color: #3D52F4; /* A strong, modern blue */
             --border-color: #E5E7EB;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
-            --transition: all 0.2s ease-in-out;
+            --card-bg: #F9FAFB;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px; /* Offset for fixed header */
+        *, *::before, *::after {
+            box-sizing: border-box;
         }
 
         body {
             background-color: var(--bg-color);
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Inter', sans-serif;
             color: var(--primary-text);
             margin: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-
-        /* --- Navigation Bar --- */
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            transition: var(--transition);
-        }
-        .nav-container {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px;
-            padding: 0 20px;
-        }
-        .nav-logo a {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--primary-text);
-            text-decoration: none;
-        }
-        .nav-links a {
-            color: var(--secondary-text);
-            text-decoration: none;
-            font-weight: 500;
-            margin-left: 25px;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-        .nav-links a.active {
-            color: var(--accent-color);
-            font-weight: 700;
-        }
-
 
         .main-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 8vh 24px;
         }
 
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding-top: 60px; /* Add padding to account for fixed header */
-            margin-bottom: 80px;
+        /* Header / Hero */
+        .header {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            align-items: center;
+            margin-bottom: 12vh;
+        }
+        @media (min-width: 768px) {
+            .header {
+                grid-template-columns: auto 1fr;
+                gap: 48px;
+            }
         }
         
         .profile-pic {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            margin-bottom: 24px;
-            box-shadow: var(--shadow-lg);
+            grid-row: 1;
         }
-
-        .hero-greeting {
-            color: var(--accent-color);
-            font-weight: 500;
-            margin-bottom: 8px;
+        @media (min-width: 768px) {
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
         }
-
-        .hero-headline {
-            font-size: clamp(2rem, 5vw, 3rem);
+        
+        .header-text h1 {
+            font-size: clamp(2rem, 5vw, 2.75rem);
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 16px;
+            margin: 0 0 16px;
         }
-
-        .hero-intro {
+        
+        .header-text p {
             font-size: 1.125rem;
             color: var(--secondary-text);
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 50ch;
             line-height: 1.7;
-        }
-        
-        /* Content Section */
-        .content-section {
-            background-color: var(--card-color);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: var(--shadow);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: transform 0.5s ease, opacity 0.5s ease;
-        }
-        .content-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-
-        p {
-            line-height: 1.7;
-            color: var(--secondary-text);
-            margin-bottom: 1rem;
-        }
-        
-        /* Core Competencies Section */
-        .competencies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-        }
-        .competency-item h3 {
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-        .competency-item i {
-            color: var(--accent-color);
-            margin-right: 12px;
-            font-size: 1.2rem;
-        }
-        .competency-item p {
-            font-size: 0.95rem;
             margin: 0;
         }
+
+        /* Section Title */
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary-text);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Featured Work */
+        .work-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
         
-        /* Contact Section */
-        .contact-link {
-            display: inline-flex;
-            align-items: center;
-            font-size: 1.1rem;
+        .work-card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            transition: var(--transition);
+            text-decoration: none;
+            color: var(--primary-text);
+            display: block;
+        }
+
+        .work-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+        }
+
+        .work-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0 0 8px;
+        }
+        
+        .work-card p {
+            font-size: 1rem;
+            color: var(--secondary-text);
+            margin: 0 0 16px;
+            line-height: 1.6;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: var(--card-bg);
+            color: var(--secondary-text);
+            padding: 4px 10px;
+            border-radius: 99px;
+            font-size: 0.875rem;
             font-weight: 500;
-            color: var(--accent-color);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin: 12vh 0;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            max-width: 20ch;
+            margin: 0 auto 16px;
+        }
+        
+        .cta-section p {
+             font-size: 1.125rem;
+            color: var(--secondary-text);
+            max-width: 50ch;
+            margin: 0 auto 24px;
+        }
+
+        .email-link {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 8px;
             text-decoration: none;
             transition: var(--transition);
         }
-        .contact-link .arrow-icon {
-            margin-left: 8px;
-            transition: var(--transition);
-        }
-        .contact-link:hover {
-            text-decoration: underline;
-        }
-        .contact-link:hover .arrow-icon {
-            transform: translateX(4px);
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--secondary-text);
-            font-size: 0.9rem;
+        .email-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px -5px rgb(61 82 244 / 0.4);
         }
         
-        @media (max-width: 600px) {
-            .nav-links {
-                display: none; /* Hide navigation links on small screens */
-            }
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+        }
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+        .footer-socials a {
+            color: var(--secondary-text);
+            font-size: 1.25rem;
+            transition: var(--transition);
+        }
+        .footer-socials a:hover {
+            color: var(--accent-color);
         }
     </style>
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="nav-container">
-            <div class="nav-logo"><a href="#home">Your Name</a></div>
-            <nav class="nav-links">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#competencies" class="nav-link">Skills</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
-        </div>
-    </header>
-
     <main class="main-container">
 
-        <section class="hero" id="home">
-            <img src="https://via.placeholder.com/150" alt="A photo of Your Name" class="profile-pic">
-            <p class="hero-greeting">Hello, I'm Your Name</p>
-            <h1 class="hero-headline">Computer Scientist & Software Engineer</h1>
-            <p class="hero-intro">I apply my deep understanding of algorithms and data structures to build efficient, scalable, and elegant software solutions.</p>
+        <header class="header">
+            <img src="https://via.placeholder.com/150" alt="Headshot of Your Name" class="profile-pic">
+            <div class="header-text">
+                <h1>Software Engineer with a passion for building robust and scalable systems.</h1>
+                <p>I leverage my Computer Science background to craft clean, efficient, and user-focused code, transforming complex challenges into elegant digital solutions.</p>
+            </div>
+        </header>
+
+        <section id="work">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="work-grid">
+                <a href="#" class="work-card">
+                    <h3>Project Title One: Enterprise SaaS Platform</h3>
+                    <p>A comprehensive platform developed for a major client, focusing on real-time data processing and a highly intuitive user interface.</p>
+                    <div class="tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">React</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">AWS</span>
+                    </div>
+                </a>
+                <a href="#" class="work-card">
+                    <h3>Project Title Two: Machine Learning Model Deployment</h3>
+                    <p>Designed and implemented a CI/CD pipeline to deploy a predictive analytics model, reducing deployment time by 80%.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">GCP</span>
+                    </div>
+                </a>
+                 <a href="#" class="work-card">
+                    <h3>Project Title Three: Open Source Contribution</h3>
+                    <p>Contributed to a popular open-source library by optimizing a key algorithm, resulting in a 15% performance increase.</p>
+                    <div class="tags">
+                        <span class="tag">C++</span>
+                        <span class="tag">Algorithms</span>
+                        <span class="tag">Data Structures</span>
+                        <span class="tag">Git</span>
+                    </div>
+                </a>
+            </div>
         </section>
 
-        <section class="content-section" id="about">
-            <h2 class="section-title">About Me</h2>
-            <p>As a graduate of Computer Science, I possess a strong foundation in the theoretical and practical aspects of computing. My passion lies in problem-solving and leveraging my analytical skills to develop software that is not only functional but also well-engineered and maintainable.</p>
-            <p>I am based in Nairobi, Kenya, and am driven to contribute to technological innovation by applying my skills in a challenging and collaborative environment.</p>
+        <section class="cta-section">
+            <h2>Let's build something great together.</h2>
+            <p>I'm currently available for new opportunities. If you have a project in mind or just want to connect, feel free to reach out.</p>
+            <a href="mailto:your.email@example.com" class="email-link">Email Me</a>
         </section>
         
-        <section class="content-section" id="competencies">
-            <h2 class="section-title">Core Competencies</h2>
-            <div class="competencies-grid">
-                <div class="competency-item">
-                    <h3><i class="fas fa-microchip"></i>Data Structures & Algorithms</h3>
-                    <p>Proficient in designing and implementing efficient algorithms in languages like Python, Java, and C++.</p>
-                </div>
-                <div class="competency-item">
-                    <h3><i class="fas fa-code-branch"></i>Software Development</h3>
-                    <p>Experienced in the full software development lifecycle (SDLC), version control with Git, and clean code principles.</p>
-                </div>
-                <div class="competency-item">
-                    <h3><i class="fas fa-database"></i>Database Management</h3>
-                    <p>Skilled in designing and managing both SQL (PostgreSQL, MySQL) and NoSQL (MongoDB) databases.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="content-section" id="experience">
-            <h2 class="section-title">Career Journey</h2>
-            <div class="experience-item">
-                <div class="experience-date">2023 - Present</div>
-                <div class="experience-details">
-                    <h3>Software Engineer at Tech Solutions Ltd.</h3>
-                    <p>Developing and maintaining key features for a large-scale enterprise application.</p>
-                </div>
-            </div>
-            <div class="experience-item">
-                <div class="experience-date">2022 - 2023</div>
-                <div class="experience-details">
-                    <h3>Junior Developer at Innovate Kenya</h3>
-                    <p>Contributed to various client projects, focusing on bug fixing and feature implementation in an agile team.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="content-section" id="contact">
-            <h2 class="section-title">Let's Collaborate</h2>
-            <p>I am always excited to discuss new projects, research, or opportunities in the field of computer science. If you'd like to build something great together, please get in touch.</p>
-            <a href="mailto:your.email@example.com" class="contact-link">
-                <span>Get in Touch</span>
-                <span class="arrow-icon"><i class="fas fa-arrow-right"></i></span>
-            </a>
-        </section>
-
     </main>
     
-    <footer class="footer">
-        </footer>
+    <footer class="main-container footer">
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+        <div class="footer-socials">
+            <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Observer for fade-in animation
-            const animationObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            document.querySelectorAll('.content-section').forEach(card => {
-                animationObserver.observe(card);
-            });
-
-            // Observer for active navigation link highlighting
-            const navObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        document.querySelectorAll('.nav-link').forEach(link => {
-                            link.classList.remove('active');
-                        });
-                        const id = entry.target.getAttribute('id');
-                        document.querySelector(`.nav-link[href="#${id}"]`).classList.add('active');
-                    }
-                });
-            }, {
-                rootMargin: '-50% 0px -50% 0px' // highlights when section is in the middle of the viewport
-            });
-
-            document.querySelectorAll('.content-section, .hero').forEach(section => {
-                navObserver.observe(section);
-            });
-        });
-    </script>
 </body>
 </html>
