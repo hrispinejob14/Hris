@@ -15,7 +15,6 @@
     box-sizing: border-box;
 }
 
-/* Added for smooth scrolling on link clicks */
 html {
     scroll-behavior: smooth;
 }
@@ -33,14 +32,13 @@ body {
    Navigation Bar
    ================================================ */
 .navbar {
-    background-color: var(--bg-color);
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border-color);
     padding: 16px 24px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(8px); /* Optional: Adds a nice blur effect */
-    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
 }
 
 .nav-container {
@@ -49,7 +47,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
 }
 
 .nav-logo {
@@ -78,6 +81,32 @@ body {
 .nav-links a:hover {
     color: var(--accent-color);
 }
+
+.nav-socials {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-socials a {
+    color: var(--secondary-text);
+    font-size: 1.25rem;
+    transition: var(--transition);
+}
+
+.nav-socials a:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Responsive: Hide links and social icons on smaller screens */
+@media (max-width: 768px) {
+    .nav-links,
+    .nav-socials {
+        display: none;
+    }
+}
+
 
 /* ================================================
    Main Content Container
@@ -109,7 +138,7 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    grid-row: 1; /* Ensures image is first on mobile */
+    grid-row: 1;
     object-fit: cover;
 }
 @media (min-width: 768px) {
@@ -177,7 +206,7 @@ body {
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border-bottom: 1px solid var(--border-color);
-    background-color: var(--card-bg); /* Fallback color */
+    background-color: var(--card-bg);
 }
 
 .work-card-content {
