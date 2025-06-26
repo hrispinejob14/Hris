@@ -127,29 +127,27 @@
             font-size: 0.95rem;
         }
         
-        /* Trusted By Section */
-        .trusted-by {
-            text-align: center;
-            margin-bottom: 80px;
+        /* Core Competencies Section */
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
         }
-        .trusted-by-title {
-            color: var(--secondary-text);
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-        .logos {
+        .competency-item h3 {
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
         }
-        .logos img {
-            height: 25px;
-            filter: grayscale(100%);
-            opacity: 0.6;
+        .competency-item i {
+            color: var(--accent-color);
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+        .competency-item p {
+            font-size: 0.95rem;
+            margin: 0;
         }
         
         /* Contact Section */
@@ -216,21 +214,30 @@
             <p class="hero-intro">I build and manage high-quality web applications, turning complex ideas into simple, elegant, and effective digital products.</p>
         </section>
 
-        <section class="trusted-by content-section">
-            <h2 class="trusted-by-title">Trusted By Industry Leaders</h2>
-            <div class="logos">
-                <img src="https://via.placeholder.com/100x30/000/fff?text=CompanyA" alt="Company A Logo">
-                <img src="https://via.placeholder.com/100x30/000/fff?text=CompanyB" alt="Company B Logo">
-                <img src="https://via.placeholder.com/100x30/000/fff?text=CompanyC" alt="Company C Logo">
-            </div>
-        </section>
-
         <section class="content-section" id="about">
             <h2 class="section-title">About Me</h2>
             <p>For over five years, I've been immersed in the world of web development and product strategy. My journey began with a fascination for how technology can solve real-world problems, which evolved into a career dedicated to building software that is both powerful and a pleasure to use.</p>
             <p>Based in Nairobi, I thrive on collaboration and am driven by a passion for continuous learning and improvement. I believe the best products are built by teams who are curious, empathetic, and committed to quality.</p>
         </section>
         
+        <section class="content-section" id="competencies">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="competencies-grid">
+                <div class="competency-item">
+                    <h3><i class="fas fa-code"></i>Frontend Development</h3>
+                    <p>Building responsive and performant user interfaces with modern technologies like React and Vue.</p>
+                </div>
+                <div class="competency-item">
+                    <h3><i class="fas fa-server"></i>Backend & APIs</h3>
+                    <p>Developing robust server-side logic and scalable RESTful APIs using Node.js and Python.</p>
+                </div>
+                <div class="competency-item">
+                    <h3><i class="fas fa-tasks"></i>Product Strategy</h3>
+                    <p>Defining product roadmaps, gathering user requirements, and leading agile development cycles.</p>
+                </div>
+            </div>
+        </section>
+
         <section class="content-section" id="experience">
             <h2 class="section-title">Career Journey</h2>
             <div class="experience-item">
@@ -287,4 +294,4 @@
         });
     </script>
 </body>
-</html>
+                                                            </html>
