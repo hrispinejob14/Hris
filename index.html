@@ -4,232 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chrispine | Software Engineer</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #FFFFFF;
-            --primary-text: #111827;
-            --secondary-text: #6B7280;
-            --accent-color: #3D52F4; /* A strong, modern blue */
-            --border-color: #E5E7EB;
-            --card-bg: #F9FAFB;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            font-family: 'Inter', sans-serif;
-            color: var(--primary-text);
-            margin: 0;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .main-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 8vh 24px;
-        }
-
-        /* Header / Hero */
-        .header {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-            align-items: center;
-            margin-bottom: 12vh;
-        }
-        @media (min-width: 768px) {
-            .header {
-                grid-template-columns: auto 1fr;
-                gap: 48px;
-            }
-        }
-        
-        .profile-pic {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            grid-row: 1;
-            object-fit: cover; /* Ensures your photo isn't distorted */
-        }
-        @media (min-width: 768px) {
-            .profile-pic {
-                width: 120px;
-                height: 120px;
-            }
-        }
-        
-        .header-text h1 {
-            font-size: clamp(2rem, 5vw, 2.75rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin: 0 0 16px;
-        }
-        
-        .header-text p {
-            font-size: 1.125rem;
-            color: var(--secondary-text);
-            max-width: 50ch;
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        /* Section Title */
-        .section-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--secondary-text);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-bottom: 32px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        /* Featured Work */
-        .work-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-        
-        .work-card {
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            transition: var(--transition);
-            text-decoration: none;
-            color: var(--primary-text);
-            display: block;
-            overflow: hidden; /* Keeps image corners rounded */
-        }
-
-        .work-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-color);
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
-        }
-        
-        /* NEW: Styles for the project image */
-        .work-card-image {
-            width: 100%;
-            display: block;
-            aspect-ratio: 16 / 9; /* Creates a nice widescreen ratio */
-            object-fit: cover;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .work-card-content {
-            padding: 24px;
-        }
-
-        .work-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 0 0 8px;
-        }
-        
-        .work-card p {
-            font-size: 1rem;
-            color: var(--secondary-text);
-            margin: 0 0 16px;
-            line-height: 1.6;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tag {
-            background-color: #F3F4F6;
-            color: var(--secondary-text);
-            padding: 4px 10px;
-            border-radius: 99px;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            text-align: center;
-            margin: 12vh 0;
-        }
-
-        .cta-section h2 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            font-weight: 700;
-            max-width: 20ch;
-            margin: 0 auto 16px;
-        }
-        
-        .cta-section p {
-             font-size: 1.125rem;
-            color: var(--secondary-text);
-            max-width: 50ch;
-            margin: 0 auto 24px;
-        }
-
-        .email-link {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #FFFFFF;
-            font-size: 1rem;
-            font-weight: 600;
-            padding: 14px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        .email-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px -5px rgb(61 82 244 / 0.4);
-        }
-        
-        /* Footer */
-        .footer {
-            border-top: 1px solid var(--border-color);
-            padding-top: 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .footer p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: var(--secondary-text);
-        }
-        .footer-socials {
-            display: flex;
-            gap: 16px;
-        }
-        .footer-socials a {
-            color: var(--secondary-text);
-            font-size: 1.25rem;
-            transition: var(--transition);
-        }
-        .footer-socials a:hover {
-            color: var(--accent-color);
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <main class="main-container">
 
         <header class="header">
-            <img src="my original68.jpg" alt="Headshot of Your Name" class="profile-pic">
+            <img src="my original68.jpg" alt="Headshot of Chrispine" class="profile-pic">
             
             <div class="header-text">
-                <h1>Software Engineer with a passion for building robust and scalable systems.</h1>
+                <h1>Hi, I'm Chrispine. A Software Engineer building robust and scalable systems.</h1>
                 <p>I leverage my Computer Science background to craft clean, efficient, and user-focused code, transforming complex challenges into elegant digital solutions.</p>
             </div>
         </header>
@@ -239,7 +32,11 @@
             <div class="work-grid">
                 
                 <a href="#" class="work-card">
-                    <img src="E87B54712F475F5C1B9E356E4616C4F3DBAE2E53.jpeg" alt="A preview of the Enterprise SaaS Platform project" class="work-card-image">
+                    <picture>
+                        <source srcset="project-one.webp" type="image/webp">
+                        <source srcset="E87B54712F475F5C1B9E356E4616C4F3DBAE2E53.jpeg" type="image/jpeg">
+                        <img src="E87B54712F475F5C1B9E356E4616C4F3DBAE2E53.jpeg" alt="A preview of the Enterprise SaaS Platform project" class="work-card-image" loading="lazy">
+                    </picture>
                     <div class="work-card-content">
                         <h3>Project Title One: Enterprise SaaS Platform</h3>
                         <p>A comprehensive platform developed for a major client, focusing on real-time data processing and a highly intuitive user interface.</p>
@@ -254,7 +51,11 @@
                 </a>
 
                 <a href="#" class="work-card">
-                    <img src="0310D9536340BC685E4D568F4EA9A0D4AA8DC6E0.jpeg" alt="A preview of the Machine Learning Model Deployment project" class="work-card-image">
+                    <picture>
+                        <source srcset="project-two.webp" type="image/webp">
+                        <source srcset="0310D9536340BC685E4D568F4EA9A0D4AA8DC6E0.jpeg" type="image/jpeg">
+                        <img src="0310D9536340BC685E4D568F4EA9A0D4AA8DC6E0.jpeg" alt="A preview of the Machine Learning Model Deployment project" class="work-card-image" loading="lazy">
+                    </picture>
                     <div class="work-card-content">
                         <h3>Project Title Two: Machine Learning Model Deployment</h3>
                         <p>Designed and implemented a CI/CD pipeline to deploy a predictive analytics model, reducing deployment time by 80%.</p>
@@ -268,8 +69,12 @@
                     </div>
                 </a>
 
-                 <a href="#" class="work-card">
-                    <img src="2FC835817193737D160638B370592E2831078679.jpeg" alt="A preview of an open source contribution" class="work-card-image">
+                <a href="#" class="work-card">
+                     <picture>
+                        <source srcset="project-three.webp" type="image/webp">
+                        <source srcset="2FC835817193737D160638B370592E2831078679.jpeg" type="image/jpeg">
+                        <img src="2FC835817193737D160638B370592E2831078679.jpeg" alt="A preview of an open source contribution" class="work-card-image" loading="lazy">
+                    </picture>
                     <div class="work-card-content">
                         <h3>Project Title Three: Open Source Contribution</h3>
                         <p>Contributed to a popular open-source library by optimizing a key algorithm, resulting in a 15% performance increase.</p>
@@ -287,16 +92,16 @@
         <section class="cta-section">
             <h2>Let's build something great together.</h2>
             <p>I'm currently available for new opportunities. If you have a project in mind or just want to connect, feel free to reach out.</p>
-            <a href="mailto:your.email@example.com" class="email-link">Email Me</a>
+            <a href="mailto:contact.chrispine@example.com" class="email-link">Email Me</a>
         </section>
         
     </main>
     
     <footer class="main-container footer">
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
+        <p>&copy; 2025 Chrispine. All rights reserved.</p>
         <div class="footer-socials">
-            <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/your-username" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </footer>
 
