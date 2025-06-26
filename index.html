@@ -3,292 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Interactive Profile</title>
+    <title>Your Name | Personal Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --dark-bg: #0A0A0A;
-            --card-bg: rgba(22, 22, 22, 0.75);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --primary-text: #EAEAEA;
-            --secondary-text: #B0B0B0;
-            --accent-color: #00FF7F; /* A vibrant Spring Green */
-            --shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            --transition: all 0.3s ease;
+            --bg-color: #F4F5F7;
+            --card-color: #FFFFFF;
+            --primary-text: #172B4D;
+            --secondary-text: #6B778C;
+            --accent-color: #0065FF;
+            --border-color: #DFE1E6;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease-in-out;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            cursor: none;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--dark-bg);
-            font-family: 'Work Sans', sans-serif;
+            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
             color: var(--primary-text);
-            padding: 40px 20px;
-            overflow-x: hidden;
+            margin: 0;
+            padding-top: 60px; /* Space for the fixed header */
         }
-        
-        /* Custom Cursor */
-        .cursor {
-            width: 30px;
-            height: 30px;
-            border: 1px solid var(--accent-color);
-            border-radius: 50%;
+
+        .header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 20px;
             position: fixed;
-            left: 0;
             top: 0;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            transition: width 0.2s, height 0.2s;
-            z-index: 9999;
-        }
-
-        .cursor::after {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
-        
-        .main-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 80vh;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 60px;
             display: flex;
-            flex-direction: column;
             justify-content: center;
-            text-align: center;
-            padding: 40px 0;
         }
 
-        .hero-title {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(2.5rem, 10vw, 5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            background: linear-gradient(90deg, var(--primary-text), var(--secondary-text));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 960px;
         }
 
-        .hero-subtitle {
+        .nav-logo {
+            font-weight: 700;
             font-size: 1.2rem;
-            color: var(--secondary-text);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-        .hero-subtitle strong {
-            color: var(--accent-color);
-            font-weight: 500;
+            color: var(--primary-text);
         }
         
-        /* Content Cards */
-        .fancy-card {
-            background: var(--card-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
+        .nav-links a {
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 25px;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .main-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .content-card {
+            background-color: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
             padding: 40px;
             margin-bottom: 30px;
             box-shadow: var(--shadow);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.4s ease, opacity 0.4s ease;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
+            transition: transform 0.5s ease, opacity 0.5s ease;
         }
         
-        .fancy-card.visible {
+        .content-card.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Interactive Glow Effect */
-        .fancy-card::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(0, 255, 127, 0.2), transparent, transparent);
+        #hero {
+            text-align: center;
+            border: none;
+            background: none;
+            box-shadow: none;
+        }
+        
+        .profile-pic {
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            pointer-events: none;
-            left: var(--x, 50%);
-            top: var(--y, 50%);
-            transform: translate(-50%, -50%);
-            transition: left 0.4s, top 0.4s;
+            border: 4px solid var(--card-color);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
 
+        .hero-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--secondary-text);
+        }
+        
         .section-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 25px;
             color: var(--primary-text);
         }
 
-        .about-text {
-            font-size: 1.1rem;
+        p {
             line-height: 1.8;
             color: var(--secondary-text);
-        }
-
-        .experience-item {
-            margin-bottom: 25px;
-        }
-        .experience-title {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: var(--primary-text);
-        }
-        .experience-details {
-            font-size: 1rem;
-            color: var(--accent-color);
-            margin: 5px 0;
+            margin-bottom: 15px;
         }
         
-        .social-links {
+        .skills-container {
             display: flex;
-            gap: 20px;
             flex-wrap: wrap;
+            gap: 12px;
         }
-        .social-link {
+
+        .skill-tag {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--secondary-text);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .contact-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .contact-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 15px 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--secondary-text);
-            font-size: 1.5rem;
-            width: 60px;
-            height: 60px;
-            border: 1px solid var(--glass-border);
-            border-radius: 50%;
-            text-decoration: none;
+            gap: 10px;
             transition: var(--transition);
         }
-        .social-link:hover {
-            color: var(--accent-color);
-            border-color: var(--accent-color);
-            transform: scale(1.1);
+
+        .contact-btn:hover {
+            background-color: #0052CC;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 101, 255, 0.2);
         }
         
+        .contact-btn.secondary {
+             background-color: #F4F5F7;
+             color: #42526E;
+             border: 1px solid var(--border-color);
+        }
+        .contact-btn.secondary:hover {
+             background-color: #DFE1E6;
+             box-shadow: none;
+        }
+
         @media (max-width: 768px) {
-            body { cursor: auto; }
-            .cursor { display: none; }
-            * { cursor: auto; }
-            .fancy-card { padding: 30px; }
+            .nav-links { display: none; } /* Simplifies header on mobile */
+            body { padding-top: 0; }
+            .header { position: static; }
         }
 
     </style>
 </head>
 <body>
 
-    <div class="cursor"></div>
+    <header class="header">
+        <div class="nav-container">
+            <div class="nav-logo">Your Name</div>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-    <div class="main-container">
-        <section class="hero">
-            <h1 class="hero-title">Your Name</h1>
-            <p class="hero-subtitle">
-                A creative developer based in Nairobi, Kenya, crafting <strong>immersive and user-centric</strong> digital experiences. 
-            </p>
+    <main class="main-container">
+        <section id="hero" class="content-card">
+            <img src="https://via.placeholder.com/150" alt="Your Name" class="profile-pic">
+            <h1 class="hero-name">Your Name</h1>
+            <h2 class="hero-title">Product Manager & Web Developer in Nairobi</h2>
         </section>
 
-        <section class="fancy-card" id="about">
-            <h2 class="section-title">About Me</h2>
-            <p class="about-text">
-                With a passion for both design and technology, I create web applications that are not only functional and robust but also beautiful and intuitive. My goal is to bridge the gap between technical implementation and user experience, delivering products that users love.
-            </p>
+        <section id="about" class="content-card">
+            <h3 class="section-title">About Me</h3>
+            <p>I am a detail-oriented professional with a passion for building useful and beautiful digital products. With a background in both development and product management, I help teams translate complex problems into simple, elegant solutions that users love.</p>
+            <p>Currently based in Nairobi, Kenya, I'm always eager to connect with fellow creators and innovators.</p>
         </section>
-
-        <section class="fancy-card" id="experience">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-item">
-                <h3 class="experience-title">Lead Frontend Developer @ Tech Innovators KE</h3>
-                <p class="experience-details">2021 - Present</p>
-            </div>
-            <div class="experience-item">
-                <h3 class="experience-title">Full Stack Developer @ Creative Solutions</h3>
-                <p class="experience-details">2018 - 2021</p>
-            </div>
-        </section>
-
-        <section class="fancy-card" id="contact">
-            <h2 class="section-title">Connect</h2>
-            <div class="social-links">
-                <a href="mailto:your.email@example.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="#" class="social-link" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-link" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://wa.me/yourwhatsappnumber" class="social-link" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        
+        <section id="experience" class="content-card">
+            <h3 class="section-title">Experience</h3>
+             <p>I have experience working with a variety of modern technologies to bring ideas to life, from initial concept to a fully-developed product.</p>
+            <div class="skills-container">
+                <span class="skill-tag">Product Management</span>
+                <span class="skill-tag">Agile & Scrum</span>
+                <span class="skill-tag">JavaScript (React, Node.js)</span>
+                <span class="skill-tag">UI/UX Principles</span>
+                <span class="skill-tag">API Design</span>
+                <span class="skill-tag">User Research</span>
             </div>
         </section>
-    </div>
 
+        <section id="contact" class="content-card">
+            <h3 class="section-title">Get In Touch</h3>
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious team. Feel free to reach out.</p>
+            <div class="contact-buttons">
+                <a href="mailto:your.email@example.com" class="contact-btn">
+                    <i class="fas fa-envelope"></i> Send Email
+                </a>
+                <a href="#" class="contact-btn secondary" target="_blank">
+                    <i class="fab fa-linkedin-in"></i> View LinkedIn
+                </a>
+                 <a href="https://wa.me/254700000000" class="contact-btn secondary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Me
+                </a>
+            </div>
+        </section>
+    </main>
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Custom Cursor ---
-            const cursor = document.querySelector('.cursor');
-            if (window.matchMedia("(min-width: 769px)").matches) {
-                document.addEventListener('mousemove', e => {
-                    cursor.setAttribute("style", "top: " + (e.pageY) + "px; left: " + (e.pageX) + "px;");
-                });
-
-                document.querySelectorAll('a, button').forEach(el => {
-                    el.addEventListener('mouseover', () => {
-                        cursor.style.width = '50px';
-                        cursor.style.height = '50px';
-                    });
-                    el.addEventListener('mouseout', () => {
-                        cursor.style.width = '30px';
-                        cursor.style.height = '30px';
-                    });
-                });
-            }
-
-            // --- Interactive Glow Effect on Cards ---
-            const cards = document.querySelectorAll('.fancy-card');
-            cards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    card.style.setProperty('--x', `${x}px`);
-                    card.style.setProperty('--y', `${y}px`);
-                });
-            });
-
-            // --- Scroll-triggered Animations ---
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
+                    // Check if the element is in the viewport
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
             }, {
-                threshold: 0.1 
+                threshold: 0.1 // Trigger when 10% of the element is visible
             });
 
-            document.querySelectorAll('.fancy-card').forEach(card => {
+            // Observe all elements with the class 'content-card'
+            document.querySelectorAll('.content-card').forEach(card => {
                 observer.observe(card);
             });
         });
     </script>
 </body>
-</html>
+    </html>
