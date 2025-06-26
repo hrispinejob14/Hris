@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Professional Bio</title>
+    <title>Your Name | Professional Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #121212;
-            --card-color: #1E1E1E;
-            --primary-text: #EAEAEA;
-            --secondary-text: #A0A0A0;
-            --accent-color: #D4AF37; /* A subtle gold accent */
-            --border-color: rgba(255, 255, 255, 0.1);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            --transition: all 0.3s ease;
+            --bg-color: #F8F9FA;
+            --content-bg: #FFFFFF;
+            --primary-text: #212529;
+            --secondary-text: #6C757D;
+            --accent-color: #005A9C; /* A deep, professional blue */
+            --border-color: #DEE2E6;
+            --shadow: 0 4px 50px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease-in-out;
         }
 
         * {
@@ -26,200 +28,255 @@
 
         body {
             background-color: var(--bg-color);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Lato', sans-serif;
             color: var(--primary-text);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
         .main-container {
-            max-width: 700px;
+            max-width: 1100px;
             width: 100%;
-            background: var(--card-color);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 40px;
+            background: var(--content-bg);
             box-shadow: var(--shadow);
-        }
-
-        .header {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .profile-pic {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--border-color);
-        }
-
-        .header-text {
+            border-radius: 8px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
         }
 
+        .profile-header {
+            padding: 50px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
         .name {
-            font-size: 2rem;
-            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
             color: var(--primary-text);
-            line-height: 1.2;
         }
 
         .job-title {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--secondary-text);
+            margin-top: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .sidebar {
+            width: 35%;
+            padding: 40px;
+            background-color: #F8F9FA;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .main-area {
+            width: 65%;
+            padding: 40px;
         }
 
         .content-section {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        .content-section:last-child {
+            margin-bottom: 0;
         }
 
         .section-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--primary-text);
-        }
-
-        .bio {
-            font-size: 1rem;
-            color: var(--secondary-text);
-            line-height: 1.8;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
         }
         
+        /* Sidebar Content */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: var(--secondary-text);
+        }
+        .contact-item a {
+            color: var(--primary-text);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+        .contact-item i {
+            width: 20px;
+            text-align: center;
+            color: var(--accent-color);
+        }
+
         .skills-container {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
-
         .skill-tag {
-            background-color: rgba(212, 175, 55, 0.1);
-            color: var(--accent-color);
-            padding: 8px 15px;
-            border-radius: 8px;
+            background-color: #E9ECEF;
+            color: var(--secondary-text);
+            padding: 5px 12px;
+            border-radius: 4px;
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 400;
         }
         
-        .contact-link {
-            display: inline-block;
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 15px;
-            transition: var(--transition);
-        }
-
-        .contact-link:hover {
-            text-decoration: underline;
-        }
-
-        .social-links {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .social-icon {
-            color: var(--secondary-text);
-            font-size: 1.5rem;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-icon:hover {
-            color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-        
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.85rem;
+        /* Main Area Content */
+        .bio {
+            font-size: 1.1rem;
+            line-height: 1.8;
             color: var(--secondary-text);
         }
 
+        .experience-item {
+            margin-bottom: 25px;
+        }
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+        .experience-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-text);
+        }
+        .experience-details {
+            font-size: 1rem;
+            color: var(--accent-color);
+            margin: 5px 0;
+            font-weight: 400;
+        }
+        .experience-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--secondary-text);
+        }
 
-        @media (max-width: 500px) {
-            body {
-                padding: 20px 10px;
-            }
-            .main-container {
-                padding: 25px;
-            }
-            .header {
+        @media (max-width: 992px) {
+            .main-content {
                 flex-direction: column;
-                text-align: center;
-                gap: 15px;
             }
-            .name {
-                font-size: 1.8rem;
+            .sidebar, .main-area {
+                width: 100%;
             }
-            .job-title {
-                font-size: 1rem;
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
             }
         }
-
+        
+        @media (max-width: 768px) {
+            body { padding: 0; }
+            .main-container { border-radius: 0; }
+            .profile-header { padding: 40px 20px; }
+            .name { font-size: 2.5rem; }
+            .job-title { font-size: 1rem; }
+            .sidebar, .main-area { padding: 30px; }
+        }
     </style>
 </head>
 <body>
 
     <div class="main-container">
-
-        <div class="header">
-            <img src="https://via.placeholder.com/100" alt="Your Name" class="profile-pic">
-            <div class="header-text">
-                <h1 class="name">Your Name</h1>
-                <p class="job-title">Senior Web Developer</p>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2 class="section-title">About Me</h2>
-            <p class="bio">
-                A detail-oriented developer with over 8 years of experience in building high-quality, scalable, and maintainable web applications. My passion lies in clean code, elegant design, and creating seamless user experiences.
-            </p>
-        </div>
+        <header class="profile-header">
+            <h1 class="name">Your Name</h1>
+            <h2 class="job-title">Lead Product Designer & Strategist</h2>
+        </header>
         
-        <div class="content-section">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-container">
-                <span class="skill-tag">HTML5 & CSS3</span>
-                <span class="skill-tag">JavaScript (ES6+)</span>
-                <span class="skill-tag">React.js</span>
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">SQL & NoSQL</span>
-                <span class="skill-tag">UI/UX Design</span>
-                <span class="skill-tag">API Development</span>
-            </div>
-        </div>
+        <div class="main-content">
+            <aside class="sidebar">
+                <section class="content-section">
+                    <h3 class="section-title">Contact</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:your.email@example.com">your.email@example.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+1234567890">+1 (234) 567-890</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nairobi, Kenya</span>
+                    </div>
+                </section>
 
-        <div class="content-section">
-            <h2 class="section-title">Connect</h2>
-            <div class="social-links">
-                <a href="mailto:your.email@example.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="#" class="social-icon" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://wa.me/yourwhatsappnumber" class="social-icon" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
-        
-        <div class="footer">
-            <p>© 2025 Your Name. All Rights Reserved.</p>
-        </div>
+                <section class="content-section">
+                    <h3 class="section-title">Connect</h3>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin-in"></i>
+                        <a href="#" target="_blank">LinkedIn Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-twitter"></i>
+                        <a href="#" target="_blank">Twitter Handle</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="#" target="_blank">GitHub Portfolio</a>
+                    </div>
+                     <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/yourwhatsappnumber" target="_blank">WhatsApp</a>
+                    </div>
+                </section>
 
+                <section class="content-section">
+                    <h3 class="section-title">Expertise</h3>
+                    <div class="skills-container">
+                        <span class="skill-tag">UX/UI Design</span>
+                        <span class="skill-tag">Product Strategy</span>
+                        <span class="skill-tag">Design Systems</span>
+                        <span class="skill-tag">User Research</span>
+                        <span class="skill-tag">Prototyping</span>
+                        <span class="skill-tag">Figma & Sketch</span>
+                        <span class="skill-tag">Agile Methodologies</span>
+                    </div>
+                </section>
+            </aside>
+
+            <main class="main-area">
+                <section class="content-section">
+                    <h3 class="section-title">About Me</h3>
+                    <p class="bio">
+                        I am a design leader with a decade of experience in crafting intuitive, user-centered digital products from concept to launch. My approach blends creative vision with strategic thinking, ensuring that design solutions not only look beautiful but also drive business goals and solve real-world user problems. I thrive in collaborative environments and am dedicated to mentoring teams to achieve excellence.
+                    </p>
+                </section>
+
+                <section class="content-section">
+                    <h3 class="section-title">Experience</h3>
+                    <div class="experience-item">
+                        <h4 class="experience-title">Senior Product Designer</h4>
+                        <p class="experience-details">Tech Solutions Inc. | 2020 - Present</p>
+                        <p class="experience-description">
+                            Lead design for the flagship enterprise SaaS platform, overseeing the user experience for over 1 million daily active users. Responsible for creating and maintaining the company-wide design system.
+                        </p>
+                    </div>
+                    <div class="experience-item">
+                        <h4 class="experience-title">UX/UI Designer</h4>
+                        <p class="experience-details">Creative Agency | 2017 - 2020</p>
+                        <p class="experience-description">
+                           Worked with a diverse range of clients, from startups to Fortune 500 companies, to design and develop engaging websites and mobile applications.
+                        </p>
+                    </div>
+                </section>
+            </main>
+        </div>
     </div>
 
 </body>
