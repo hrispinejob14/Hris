@@ -49,6 +49,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
 }
 
 .nav-logo {
@@ -77,14 +78,6 @@ body {
 .nav-links a:hover {
     color: var(--accent-color);
 }
-
-/* Responsive: Hide links on smaller screens */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-}
-
 
 /* ================================================
    Main Content Container
