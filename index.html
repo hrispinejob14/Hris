@@ -21,7 +21,88 @@
 </head>
 <body>
 
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Chrispine Omondi</a>
+            
+            <div class="nav-desktop">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="nav-socials">
+                    <a href="https://github.com/chrispine-omondi" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/chrispine-omondi" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="theme-switcher">
+                    <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox" aria-label="Toggle dark mode">
+                    <label for="theme-toggle" class="theme-toggle-label"></label>
+                </div>
+            </div>
+
+            <button class="hamburger-menu" aria-label="Open navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+        <div class="mobile-menu-socials">
+            <a href="https://github.com/chrispine-omondi" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/chrispine-omondi" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div class="theme-switcher">
+             <input type="checkbox" id="theme-toggle-mobile" class="theme-toggle-checkbox" aria-label="Toggle dark mode">
+             <label for="theme-toggle-mobile" class="theme-toggle-label"></label>
+        </div>
+    </div>
+
     <main class="main-container">
+
+        <header class="header">
+            <img src="assets/my original68.jpg" alt="Headshot of Chrispine Omondi" class="profile-pic animate-on-scroll">
+            <div class="header-text animate-on-scroll">
+                <h1>A recent Computer Science graduate passionate about crafting clean code and solving real-world problems.</h1>
+                <p>I transform complex requirements into elegant, high-performance software. My university education provided me with a strong foundation in data structures, algorithms, and software design principles, which I am eager to apply in a collaborative, forward-thinking development team.</p>
+            </div>
+        </header>
+
+        <section id="about" class="animate-on-scroll">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>My Journey Into Tech</h3>
+                    <p>From my first "Hello, World!" program, I was captivated by the power of code to bring ideas to life. This passion led me to pursue a degree in Computer Science, where I dove deep into the fundamentals of software engineering. I thrive on challenges, whether it's designing a normalized database schema, optimizing a slow algorithm, or building a responsive UI from scratch.</p>
+                    <p>Outside of coding, I enjoy contributing to open-source projects and keeping up with the latest advancements in the tech world. I am now looking for a full-time software engineering role where I can contribute to meaningful projects and grow alongside a talented team.</p>
+                </div>
+                <div class="about-skills">
+                    <h3>Technical Skills</h3>
+                    <ul class="skills-list">
+                        <li>Python</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>Java</li>
+                        <li>HTML5 & CSS3</li>
+                        <li>SQL</li>
+                        <li>Node.js</li>
+                        <li>React</li>
+                        <li>Django</li>
+                        <li>Flask</li>
+                        <li>PostgreSQL</li>
+                        <li>MongoDB</li>
+                        <li>Git & GitHub</li>
+                        <li>Docker</li>
+                        <li>REST APIs</li>
+                        <li>AWS (S3, EC2)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
         <section id="work" class="animate-on-scroll">
             <h2 class="section-title">Featured Projects</h2>
@@ -31,27 +112,71 @@
                     <img src="assets/E87B54712F475F5C1B9E356E4616C4F3DBAE2E53.jpeg" alt="Screenshot of the UniConnect Marketplace project" class="work-card-image" loading="lazy">
                     <div class="work-card-content">
                         <h3>UniConnect - A Student Marketplace Platform</h3>
-                        <p>A full-stack web application designed to help university students buy and sell textbooks and course materials. Features secure user authentication, real-time messaging, and product listing management.</p>
+                        <p>A full-stack web application designed to help university students buy and sell textbooks and course materials.</p>
                         <div class="tags">
                             <span class="tag">Node.js</span>
                             <span class="tag">Express</span>
                             <span class="tag">React</span>
                             <span class="tag">MongoDB</span>
-                            <span class="tag">JWT</span>
                         </div>
                         <div class="read-more">View Case Study &rarr;</div>
                     </div>
                 </a>
 
                 <a href="#" class="work-card animate-on-scroll">
-                     </a>
+                    <img src="assets/0310D9536340BC685E4D568F4EA9A0D4AA8DC6E0.jpeg" alt="Screenshot of the AgroDetect crop analysis application" class="work-card-image" loading="lazy">
+                    <div class="work-card-content">
+                        <h3>AgroDetect - Crop Disease Classifier</h3>
+                        <p>Developed and trained a Convolutional Neural Network (CNN) to identify common crop diseases from leaf images.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">Computer Vision</span>
+                        </div>
+                        <div class="read-more">View Case Study &rarr;</div>
+                    </div>
+                </a>
 
                 <a href="#" class="work-card animate-on-scroll">
-                     </a>
+                    <img src="assets/2FC835817193737D160638B370592E2831078679.jpeg" alt="Code snippet showing an optimized algorithm" class="work-card-image" loading="lazy">
+                    <div class="work-card-content">
+                        <h3>API Performance Optimization</h3>
+                        <p>Identified and resolved a critical N+1 query bottleneck in a Django-based project API, improving response time.</p>
+                        <div class="tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Performance</span>
+                        </div>
+                        <div class="read-more">View Case Study &rarr;</div>
+                    </div>
+                </a>
             </div>
         </section>
         
-        </main>
+        <section id="contact" class="cta-section animate-on-scroll">
+            <h2>I'm ready to build the future. Let's connect.</h2>
+            <p>I am actively seeking software engineering opportunities where I can contribute my skills, learn from experienced mentors, and help build amazing products. I look forward to hearing from you.</p>
+            <form action="https://formsubmit.co/your@email.com" method="POST" class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="name" required placeholder="Your Name">
+                    <input type="email" name="email" required placeholder="Your Email">
+                </div>
+                <textarea name="message" required placeholder="Your Message"></textarea>
+                <button type="submit" class="email-link">Send Message</button>
+            </form>
+        </section>
+        
+    </main>
+    
+    <footer class="main-container footer">
+        <p>&copy; 2025 Chrispine Omondi. All rights reserved.</p>
+        <div class="footer-socials">
+            <a href="https://github.com/chrispine-omondi" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/chrispine-omondi" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
