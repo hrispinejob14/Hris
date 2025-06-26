@@ -7,8 +7,11 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -46,10 +49,80 @@
     </div>
 
     <main class="main-container">
-        </main>
+
+        <header class="header">
+            <img src="assets/my original68.jpg" alt="Headshot of Chrispine" class="profile-pic">
+            <div class="header-text">
+                <h1>Hi, I'm Chrispine. A Software Engineer building robust and scalable systems.</h1>
+                <p>I leverage my Computer Science background to craft clean, efficient, and user-focused code, transforming complex challenges into elegant digital solutions.</p>
+            </div>
+        </header>
+
+        <section id="work">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="work-grid">
+                
+                <a href="#" class="work-card">
+                    <img src="assets/E87B54712F475F5C1B9E356E4616C4F3DBAE2E53.jpeg" alt="A preview of the Enterprise SaaS Platform project" class="work-card-image" loading="lazy">
+                    <div class="work-card-content">
+                        <h3>Project Title One: Enterprise SaaS Platform</h3>
+                        <p>A comprehensive platform developed for a major client, focusing on real-time data processing and a highly intuitive user interface.</p>
+                        <div class="tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">React</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">AWS</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="work-card">
+                    <img src="assets/0310D9536340BC685E4D568F4EA9A0D4AA8DC6E0.jpeg" alt="A preview of the Machine Learning Model Deployment project" class="work-card-image" loading="lazy">
+                    <div class="work-card-content">
+                        <h3>Project Title Two: Machine Learning Model Deployment</h3>
+                        <p>Designed and implemented a CI/CD pipeline to deploy a predictive analytics model, reducing deployment time by 80%.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">Kubernetes</span>
+                            <span class="tag">GCP</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="work-card">
+                    <img src="assets/2FC835817193737D160638B370592E2831078679.jpeg" alt="A preview of an open source contribution" class="work-card-image" loading="lazy">
+                    <div class="work-card-content">
+                        <h3>Project Title Three: Open Source Contribution</h3>
+                        <p>Contributed to a popular open-source library by optimizing a key algorithm, resulting in a 15% performance increase.</p>
+                        <div class="tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">Algorithms</span>
+                            <span class="tag">Data Structures</span>
+                            <span class="tag">Git</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="contact" class="cta-section">
+            <h2>Let's build something great together.</h2>
+            <p>I'm currently available for new opportunities. If you have a project in mind or just want to connect, feel free to reach out.</p>
+            <a href="mailto:contact.chrispine@example.com" class="email-link">Email Me</a>
+        </section>
+        
+    </main>
     
     <footer class="main-container footer">
-        </footer>
+        <p>&copy; 2025 Chrispine. All rights reserved.</p>
+        <div class="footer-socials">
+            <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/your-username" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
