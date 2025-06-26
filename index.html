@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Bio</title>
+    <title>Your Name | Professional Bio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #4A90E2; /* A professional blue */
-            --primary-dark: #357ABD;
-            --dark-bg: #1A1A1A;
-            --light-bg: #2C2C2C;
-            --text-primary: #FFFFFF;
-            --text-secondary: #B0B0B0;
-            --glass-bg: rgba(44, 44, 44, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            --transition: all 0.3s ease-in-out;
+            --bg-color: #121212;
+            --card-color: #1E1E1E;
+            --primary-text: #EAEAEA;
+            --secondary-text: #A0A0A0;
+            --accent-color: #D4AF37; /* A subtle gold accent */
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
         }
 
         * {
@@ -27,164 +25,202 @@
         }
 
         body {
-            background: var(--dark-bg);
-            min-height: 100vh;
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-primary);
+            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            color: var(--primary-text);
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        .bg-pattern {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(circle at 15% 85%, rgba(74, 144, 226, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 85% 15%, rgba(53, 122, 189, 0.1) 0%, transparent 40%);
-            z-index: -1;
+            min-height: 100vh;
+            padding: 40px 20px;
         }
 
         .main-container {
-            max-width: 800px;
+            max-width: 700px;
             width: 100%;
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
-            border-radius: 25px;
+            background: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
             padding: 40px;
             box-shadow: var(--shadow);
-            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 30px;
         }
 
         .profile-pic {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            border: 4px solid var(--primary-color);
-            margin: 0 auto 20px;
             object-fit: cover;
+            border: 3px solid var(--border-color);
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
         }
 
         .name {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-text);
             line-height: 1.2;
         }
 
         .job-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 400;
-            color: var(--primary-color);
-            margin-bottom: 25px;
+            color: var(--accent-color);
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--primary-text);
         }
 
         .bio {
             font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 30px;
+            color: var(--secondary-text);
+            line-height: 1.8;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: rgba(212, 175, 55, 0.1);
+            color: var(--accent-color);
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .contact-link {
+            display: inline-block;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 15px;
+            transition: var(--transition);
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
         }
 
         .social-links {
             display: flex;
-            justify-content: center;
+            align-items: center;
             gap: 20px;
-            flex-wrap: wrap;
         }
 
-        .social-btn {
-            color: var(--text-primary);
-            background: var(--light-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 12px 25px;
-            font-size: 1rem;
-            font-weight: 500;
+        .social-icon {
+            color: var(--secondary-text);
+            font-size: 1.5rem;
             text-decoration: none;
             transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
-        .social-btn:hover {
-            transform: translateY(-4px);
-            background: var(--primary-color);
-            color: white;
-            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.3);
+        .social-icon:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
         }
-
-        .social-btn i {
-            font-size: 1.4rem;
-        }
-
+        
         .footer {
+            text-align: center;
             margin-top: 40px;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            color: var(--secondary-text);
         }
 
-        @media (max-width: 768px) {
+
+        @media (max-width: 500px) {
+            body {
+                padding: 20px 10px;
+            }
             .main-container {
-                padding: 30px;
+                padding: 25px;
+            }
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
             }
             .name {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             .job-title {
                 font-size: 1rem;
             }
         }
 
-        @media (max-width: 480px) {
-            .main-container {
-                padding: 20px;
-            }
-            .profile-pic {
-                width: 120px;
-                height: 120px;
-            }
-            .social-btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-            .social-btn i {
-                font-size: 1.2rem;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="bg-pattern"></div>
 
     <div class="main-container">
 
-        <img src="https://via.placeholder.com/150" alt="Your Name" class="profile-pic">
-
-        <h1 class="name">Your Name</h1>
-
-        <p class="job-title">Full Stack Developer | Tech Enthusiast</p>
-
-        <p class="bio">
-            I am a passionate developer with expertise in creating modern, responsive, and user-friendly web applications. I enjoy solving complex problems and continuously learning new technologies. Feel free to connect with me!
-        </p>
-
-        <div class="social-links">
-            <a href="#" class="social-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="#" class="social-btn" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
-            <a href="#" class="social-btn" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
-            <a href="#" class="social-btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-            <a href="#" class="social-btn" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        <div class="header">
+            <img src="https://via.placeholder.com/100" alt="Your Name" class="profile-pic">
+            <div class="header-text">
+                <h1 class="name">Your Name</h1>
+                <p class="job-title">Senior Web Developer</p>
+            </div>
         </div>
+
+        <div class="content-section">
+            <h2 class="section-title">About Me</h2>
+            <p class="bio">
+                A detail-oriented developer with over 8 years of experience in building high-quality, scalable, and maintainable web applications. My passion lies in clean code, elegant design, and creating seamless user experiences.
+            </p>
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <span class="skill-tag">HTML5 & CSS3</span>
+                <span class="skill-tag">JavaScript (ES6+)</span>
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">SQL & NoSQL</span>
+                <span class="skill-tag">UI/UX Design</span>
+                <span class="skill-tag">API Development</span>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Connect</h2>
+            <div class="social-links">
+                <a href="mailto:your.email@example.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://wa.me/yourwhatsappnumber" class="social-icon" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 Your Name. All Rights Reserved.</p>
+        </div>
+
     </div>
+
 </body>
 </html>
