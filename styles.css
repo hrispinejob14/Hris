@@ -95,7 +95,8 @@ body.dark-mode .navbar {
     transition: var(--transition); 
 }
 
-.nav-links a:hover { 
+.nav-links a:hover,
+.nav-links a.active { 
     color: var(--accent-color); 
 }
 
@@ -440,6 +441,106 @@ body.dark-mode .work-card:hover {
     font-size: 0.875rem;
     font-weight: 500;
 }
+
+.read-more {
+    margin-top: 16px;
+    font-weight: 600;
+    color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.work-card:hover .read-more {
+    transform: translateX(4px);
+}
+
+/* ================================================
+   Project Detail Page
+   ================================================ */
+.project-header {
+    text-align: center;
+    margin-bottom: 4vh;
+}
+
+.project-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 8px;
+}
+
+.project-summary {
+    font-size: 1.25rem;
+    color: var(--secondary-text);
+    max-width: 60ch;
+    margin: 0 auto;
+}
+
+.project-image-main {
+    width: 100%;
+    margin-bottom: 6vh;
+}
+
+.project-image-main img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.project-content-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+}
+
+@media (min-width: 900px) {
+    .project-content-layout {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.project-details h3 {
+    margin-top: 32px;
+}
+
+.project-info-box {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    height: fit-content;
+    position: sticky;
+    top: 100px; /* Aligns with bottom of navbar */
+}
+
+.project-info-box h3, .project-info-box h4 {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.project-info-box ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+.project-links {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.project-links .email-link {
+    text-align: center;
+}
+
+.project-links .email-link.secondary {
+    background-color: var(--card-bg);
+    color: var(--primary-text);
+    border: 1px solid var(--border-color);
+}
+body.dark-mode .project-links .email-link.secondary:hover {
+    border-color: var(--accent-color);
+}
+
 
 /* ================================================
    Contact Form & CTA
