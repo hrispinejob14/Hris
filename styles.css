@@ -174,21 +174,6 @@ body {
     color: var(--secondary-text);
 }
 
-
-/* Responsive Breakpoint */
-@media (max-width: 768px) {
-    .nav-desktop {
-        display: none; /* Hide desktop links and socials */
-    }
-    .hamburger-menu {
-        display: flex; /* Show hamburger icon */
-    }
-    /* Prevent scrolling when mobile menu is open */
-    body.no-scroll {
-        overflow: hidden;
-    }
-}
-
 /* ================================================
    Main Content Container
    ================================================ */
@@ -207,11 +192,13 @@ body {
     gap: 24px;
     align-items: center;
     margin-bottom: 12vh;
+    text-align: center; /* Center content on mobile */
 }
 @media (min-width: 768px) {
     .header {
         grid-template-columns: auto 1fr;
         gap: 48px;
+        text-align: left; /* Reset text alignment for larger screens */
     }
 }
 
@@ -226,6 +213,7 @@ body {
     .profile-pic {
         width: 120px;
         height: 120px;
+        grid-row: auto; /* Reset grid-row for larger screens */
     }
 }
 
@@ -386,4 +374,39 @@ body {
 }
 .footer-socials a:hover {
     color: var(--accent-color);
+}
+
+/* ================================================
+   Responsive Breakpoint
+   ================================================ */
+@media (max-width: 768px) {
+    /* --- Nav bar --- */
+    .nav-desktop {
+        display: none; /* Hide desktop links and socials */
+    }
+    .hamburger-menu {
+        display: flex; /* Show hamburger icon */
+    }
+    /* Prevent scrolling when mobile menu is open */
+    body.no-scroll {
+        overflow: hidden;
+    }
+
+    /* --- Header Section --- */
+    .header {
+        margin-bottom: 8vh; /* Reduce bottom margin */
+    }
+    .profile-pic {
+        width: 80px; /* Smaller profile pic on mobile */
+        height: 80px;
+        margin: 0 auto 16px; /* Center the image */
+    }
+    .header-text h1 {
+        font-size: clamp(1.75rem, 6vw, 2.25rem); /* Smaller heading */
+        margin-bottom: 12px;
+    }
+    .header-text p {
+        font-size: 1rem; /* Slightly smaller paragraph */
+        line-height: 1.6;
+    }
 }
