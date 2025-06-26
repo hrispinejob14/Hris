@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Personal Profile</title>
+    <title>Your Name | Professional Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #F4F5F7;
+            --bg-color: #F9FAFB; /* Softer off-white */
             --card-color: #FFFFFF;
-            --primary-text: #172B4D;
-            --secondary-text: #6B778C;
-            --accent-color: #0065FF;
-            --border-color: #DFE1E6;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s ease-in-out;
+            --primary-text: #111827; /* Darker charcoal for better contrast */
+            --secondary-text: #6B7280;
+            --accent-color: #4338CA; /* A deep, sophisticated indigo */
+            --border-color: #E5E7EB;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+            --transition: all 0.2s ease-in-out;
         }
 
         html {
@@ -26,254 +27,264 @@
 
         body {
             background-color: var(--bg-color);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Manrope', sans-serif;
             color: var(--primary-text);
             margin: 0;
-            padding-top: 60px; /* Space for the fixed header */
-        }
-
-        .header {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 0 20px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            max-width: 960px;
-        }
-
-        .nav-logo {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary-text);
-        }
-        
-        .nav-links a {
-            color: var(--secondary-text);
-            text-decoration: none;
-            font-weight: 500;
-            margin-left: 25px;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-        .nav-links a:hover {
-            color: var(--accent-color);
         }
 
         .main-container {
-            max-width: 960px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
-        .content-card {
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-greeting {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .hero-headline {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero-intro {
+            font-size: 1.125rem;
+            color: var(--secondary-text);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        /* Content Section */
+        .content-section {
             background-color: var(--card-color);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 40px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             box-shadow: var(--shadow);
             opacity: 0;
             transform: translateY(20px);
             transition: transform 0.5s ease, opacity 0.5s ease;
         }
-        
-        .content-card.visible {
+        .content-section.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        #hero {
-            text-align: center;
-            border: none;
-            background: none;
-            box-shadow: none;
-        }
-        
-        .profile-pic {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 4px solid var(--card-color);
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-
-        .hero-name {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .hero-title {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: var(--secondary-text);
-        }
-        
         .section-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 25px;
-            color: var(--primary-text);
+            margin-bottom: 24px;
         }
 
         p {
-            line-height: 1.8;
+            line-height: 1.7;
             color: var(--secondary-text);
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
         }
         
-        .skills-container {
+        /* Experience Section */
+        .experience-item {
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+            gap: 20px;
+            margin-bottom: 24px;
         }
-
-        .skill-tag {
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+        .experience-date {
             color: var(--secondary-text);
-            padding: 8px 16px;
-            border-radius: 8px;
             font-size: 0.9rem;
+            flex-shrink: 0;
+            width: 80px;
+        }
+        .experience-details h3 {
+            font-size: 1.1rem;
             font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .experience-details p {
+            margin: 0;
+            font-size: 0.95rem;
         }
         
-        .contact-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+        /* Trusted By Section */
+        .trusted-by {
+            text-align: center;
+            margin-bottom: 80px;
         }
-
-        .contact-btn {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 15px 20px;
-            font-size: 1rem;
-            font-weight: 500;
-            text-decoration: none;
+        .trusted-by-title {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .logos {
             display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 10px;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .logos img {
+            height: 25px;
+            filter: grayscale(100%);
+            opacity: 0.6;
+        }
+        
+        /* Contact Section */
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--accent-color);
+            text-decoration: none;
             transition: var(--transition);
         }
-
-        .contact-btn:hover {
-            background-color: #0052CC;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 101, 255, 0.2);
+        .contact-link .arrow-icon {
+            margin-left: 8px;
+            transition: var(--transition);
         }
-        
-        .contact-btn.secondary {
-             background-color: #F4F5F7;
-             color: #42526E;
-             border: 1px solid var(--border-color);
+        .contact-link:hover {
+            text-decoration: underline;
         }
-        .contact-btn.secondary:hover {
-             background-color: #DFE1E6;
-             box-shadow: none;
+        .contact-link:hover .arrow-icon {
+            transform: translateX(4px);
         }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; } /* Simplifies header on mobile */
-            body { padding-top: 0; }
-            .header { position: static; }
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
         }
+        .footer a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-weight: 500;
+        }
+         .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer-socials {
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .footer-socials a {
+            color: var(--secondary-text);
+            font-size: 1.2rem;
+        }
+         .footer-socials a:hover {
+            color: var(--accent-color);
+        }
+
 
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="nav-container">
-            <div class="nav-logo">Your Name</div>
-            <nav class="nav-links">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
-
     <main class="main-container">
-        <section id="hero" class="content-card">
-            <img src="https://via.placeholder.com/150" alt="Your Name" class="profile-pic">
-            <h1 class="hero-name">Your Name</h1>
-            <h2 class="hero-title">Product Manager & Web Developer in Nairobi</h2>
+
+        <section class="hero">
+            <img src="https://via.placeholder.com/150" alt="A photo of Your Name" class="profile-pic">
+            <p class="hero-greeting">Hello, I'm Your Name</p>
+            <h1 class="hero-headline">A Developer Focused on Crafting User-Centric Experiences</h1>
+            <p class="hero-intro">I build and manage high-quality web applications, turning complex ideas into simple, elegant, and effective digital products.</p>
         </section>
 
-        <section id="about" class="content-card">
-            <h3 class="section-title">About Me</h3>
-            <p>I am a detail-oriented professional with a passion for building useful and beautiful digital products. With a background in both development and product management, I help teams translate complex problems into simple, elegant solutions that users love.</p>
-            <p>Currently based in Nairobi, Kenya, I'm always eager to connect with fellow creators and innovators.</p>
+        <section class="trusted-by content-section">
+            <h2 class="trusted-by-title">Trusted By Industry Leaders</h2>
+            <div class="logos">
+                <img src="https://via.placeholder.com/100x30/000/fff?text=CompanyA" alt="Company A Logo">
+                <img src="https://via.placeholder.com/100x30/000/fff?text=CompanyB" alt="Company B Logo">
+                <img src="https://via.placeholder.com/100x30/000/fff?text=CompanyC" alt="Company C Logo">
+            </div>
+        </section>
+
+        <section class="content-section" id="about">
+            <h2 class="section-title">About Me</h2>
+            <p>For over five years, I've been immersed in the world of web development and product strategy. My journey began with a fascination for how technology can solve real-world problems, which evolved into a career dedicated to building software that is both powerful and a pleasure to use.</p>
+            <p>Based in Nairobi, I thrive on collaboration and am driven by a passion for continuous learning and improvement. I believe the best products are built by teams who are curious, empathetic, and committed to quality.</p>
         </section>
         
-        <section id="experience" class="content-card">
-            <h3 class="section-title">Experience</h3>
-             <p>I have experience working with a variety of modern technologies to bring ideas to life, from initial concept to a fully-developed product.</p>
-            <div class="skills-container">
-                <span class="skill-tag">Product Management</span>
-                <span class="skill-tag">Agile & Scrum</span>
-                <span class="skill-tag">JavaScript (React, Node.js)</span>
-                <span class="skill-tag">UI/UX Principles</span>
-                <span class="skill-tag">API Design</span>
-                <span class="skill-tag">User Research</span>
+        <section class="content-section" id="experience">
+            <h2 class="section-title">Career Journey</h2>
+            <div class="experience-item">
+                <div class="experience-date">2022 - Present</div>
+                <div class="experience-details">
+                    <h3>Senior Developer at Tech Corp</h3>
+                    <p>Leading the frontend development for a major SaaS product, focusing on performance and user experience.</p>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="experience-date">2019 - 2022</div>
+                <div class="experience-details">
+                    <h3>Full Stack Developer at Creative Digital</h3>
+                    <p>Designed and built end-to-end web applications for a diverse range of clients.</p>
+                </div>
             </div>
         </section>
 
-        <section id="contact" class="content-card">
-            <h3 class="section-title">Get In Touch</h3>
-            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious team. Feel free to reach out.</p>
-            <div class="contact-buttons">
-                <a href="mailto:your.email@example.com" class="contact-btn">
-                    <i class="fas fa-envelope"></i> Send Email
-                </a>
-                <a href="#" class="contact-btn secondary" target="_blank">
-                    <i class="fab fa-linkedin-in"></i> View LinkedIn
-                </a>
-                 <a href="https://wa.me/254700000000" class="contact-btn secondary" target="_blank">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Me
-                </a>
-            </div>
+        <section class="content-section" id="contact">
+            <h2 class="section-title">Have a Project in Mind?</h2>
+            <p>I am currently available for freelance work and open to discussing new opportunities. If you have a project you think I'd be a good fit for, I'd love to hear from you.</p>
+            <a href="mailto:your.email@example.com" class="contact-link">
+                <span>Get in Touch</span>
+                <span class="arrow-icon"><i class="fas fa-arrow-right"></i></span>
+            </a>
         </section>
+
     </main>
     
+    <footer class="footer">
+        <div>Designed with care by <a href="#">Your Name</a></div>
+        <div class="footer-socials">
+            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    // Check if the element is in the viewport
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
             }, {
-                threshold: 0.1 // Trigger when 10% of the element is visible
+                threshold: 0.1
             });
 
-            // Observe all elements with the class 'content-card'
-            document.querySelectorAll('.content-card').forEach(card => {
+            document.querySelectorAll('.content-section').forEach(card => {
                 observer.observe(card);
             });
         });
     </script>
 </body>
-    </html>
+</html>
