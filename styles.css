@@ -15,6 +15,11 @@
     box-sizing: border-box;
 }
 
+/* Added for smooth scrolling on link clicks */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg-color);
     font-family: 'Inter', sans-serif;
@@ -24,6 +29,66 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* ================================================
+   Navigation Bar
+   ================================================ */
+.navbar {
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(8px); /* Optional: Adds a nice blur effect */
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+}
+
+.nav-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary-text);
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--secondary-text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Responsive: Hide links on smaller screens */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+}
+
+
+/* ================================================
+   Main Content Container
+   ================================================ */
 .main-container {
     max-width: 900px;
     margin: 0 auto;
@@ -32,9 +97,7 @@ body {
 
 /* ================================================
    Header / Hero Section
-   ================================================ 
-   - Uses a 2-column grid on desktop and stacks to a single column on mobile.
-*/
+   ================================================ */
 .header {
     display: grid;
     grid-template-columns: 1fr;
@@ -63,7 +126,6 @@ body {
     }
 }
 
-/* Using clamp() for fluid typography. Scales font between 2rem and 2.75rem. */
 .header-text h1 {
     font-size: clamp(2rem, 5vw, 2.75rem);
     font-weight: 700;
@@ -107,7 +169,7 @@ body {
     text-decoration: none;
     color: var(--primary-text);
     display: block;
-    overflow: hidden; /* Keeps image corners rounded */
+    overflow: hidden; 
 }
 
 .work-card:hover {
@@ -116,7 +178,6 @@ body {
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
 }
 
-/* Visual fallback for broken images */
 .work-card-image {
     width: 100%;
     display: block;
