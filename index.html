@@ -57,6 +57,7 @@
             height: 100px;
             border-radius: 50%;
             grid-row: 1;
+            object-fit: cover; /* Ensures your photo isn't distorted */
         }
         @media (min-width: 768px) {
             .profile-pic {
@@ -103,17 +104,30 @@
             background-color: var(--bg-color);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 24px;
             transition: var(--transition);
             text-decoration: none;
             color: var(--primary-text);
             display: block;
+            overflow: hidden; /* Keeps image corners rounded */
         }
 
         .work-card:hover {
             transform: translateY(-4px);
             border-color: var(--accent-color);
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+        }
+        
+        /* NEW: Styles for the project image */
+        .work-card-image {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 9; /* Creates a nice widescreen ratio */
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .work-card-content {
+            padding: 24px;
         }
 
         .work-card h3 {
@@ -136,7 +150,7 @@
         }
 
         .tag {
-            background-color: var(--card-bg);
+            background-color: #F3F4F6;
             color: var(--secondary-text);
             padding: 4px 10px;
             border-radius: 99px;
@@ -213,6 +227,7 @@
 
         <header class="header">
             <img src="https://via.placeholder.com/150" alt="Headshot of Your Name" class="profile-pic">
+            
             <div class="header-text">
                 <h1>Software Engineer with a passion for building robust and scalable systems.</h1>
                 <p>I leverage my Computer Science background to craft clean, efficient, and user-focused code, transforming complex challenges into elegant digital solutions.</p>
@@ -222,36 +237,48 @@
         <section id="work">
             <h2 class="section-title">Featured Work</h2>
             <div class="work-grid">
+                
                 <a href="#" class="work-card">
-                    <h3>Project Title One: Enterprise SaaS Platform</h3>
-                    <p>A comprehensive platform developed for a major client, focusing on real-time data processing and a highly intuitive user interface.</p>
-                    <div class="tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Spring Boot</span>
-                        <span class="tag">React</span>
-                        <span class="tag">PostgreSQL</span>
-                        <span class="tag">AWS</span>
+                    <img src="https://via.placeholder.com/800x450" alt="A preview of the Enterprise SaaS Platform project" class="work-card-image">
+                    <div class="work-card-content">
+                        <h3>Project Title One: Enterprise SaaS Platform</h3>
+                        <p>A comprehensive platform developed for a major client, focusing on real-time data processing and a highly intuitive user interface.</p>
+                        <div class="tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">React</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">AWS</span>
+                        </div>
                     </div>
                 </a>
+
                 <a href="#" class="work-card">
-                    <h3>Project Title Two: Machine Learning Model Deployment</h3>
-                    <p>Designed and implemented a CI/CD pipeline to deploy a predictive analytics model, reducing deployment time by 80%.</p>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Flask</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">Kubernetes</span>
-                        <span class="tag">GCP</span>
+                    <img src="https://via.placeholder.com/800x450" alt="A preview of the Machine Learning Model Deployment project" class="work-card-image">
+                    <div class="work-card-content">
+                        <h3>Project Title Two: Machine Learning Model Deployment</h3>
+                        <p>Designed and implemented a CI/CD pipeline to deploy a predictive analytics model, reducing deployment time by 80%.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">Kubernetes</span>
+                            <span class="tag">GCP</span>
+                        </div>
                     </div>
                 </a>
+
                  <a href="#" class="work-card">
-                    <h3>Project Title Three: Open Source Contribution</h3>
-                    <p>Contributed to a popular open-source library by optimizing a key algorithm, resulting in a 15% performance increase.</p>
-                    <div class="tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">Algorithms</span>
-                        <span class="tag">Data Structures</span>
-                        <span class="tag">Git</span>
+                    <img src="https://via.placeholder.com/800x450" alt="A preview of an open source contribution" class="work-card-image">
+                    <div class="work-card-content">
+                        <h3>Project Title Three: Open Source Contribution</h3>
+                        <p>Contributed to a popular open-source library by optimizing a key algorithm, resulting in a 15% performance increase.</p>
+                        <div class="tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">Algorithms</span>
+                            <span class="tag">Data Structures</span>
+                            <span class="tag">Git</span>
+                        </div>
                     </div>
                 </a>
             </div>
